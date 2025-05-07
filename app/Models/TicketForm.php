@@ -9,14 +9,15 @@ class TicketForm extends Model
 {
     protected $table = 'ticket_forms';
     protected $fillable = [
-        'ticket_id', 
+        'id', 
         'subject', 
         'department', 
         'priority', 
         'service',
         'body',      // Added body field
         'attachment', // Added attachment field
-        'status', 
+        'status',
+        'message', 
         'date'
     ];
     

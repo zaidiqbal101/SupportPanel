@@ -21,6 +21,7 @@ class TicketController extends Controller
                 'department' => $ticket->department,
                 'priority' => $ticket->priority,
                 'status' => $ticket->status,
+                'message' => $ticket->message,
                 'date' => $ticket->created_at ? $ticket->created_at->format('Y-m-d') : null,
             ];
         });
