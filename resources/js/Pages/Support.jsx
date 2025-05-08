@@ -11,6 +11,7 @@ import {
   DialogFooter,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import Navbar from '@/Components/Navbar';
 
 function Support({ tickets: initialTickets = [] }) {
   const [statusFilter, setStatusFilter] = useState('All');
@@ -60,6 +61,7 @@ function Support({ tickets: initialTickets = [] }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
+      <Navbar />
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
       <main className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex justify-between items-center mb-8">
@@ -133,6 +135,9 @@ function Support({ tickets: initialTickets = [] }) {
                   Message
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Chat
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Date
                 </th>
               </tr>
@@ -175,6 +180,7 @@ function Support({ tickets: initialTickets = [] }) {
                         View
                       </Button>
                     </td>
+                    <td className="py-3 px-6 border-b text-gray-700"><a href={`/messages`}>Chat</a></td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {ticket.date ? new Date(ticket.date).toLocaleString() : 'N/A'}
                     </td>

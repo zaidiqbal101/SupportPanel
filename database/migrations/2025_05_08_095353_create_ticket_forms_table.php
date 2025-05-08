@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.odl
+     * Run the migrations.
      */
     public function up(): void
     {
@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('service')->nullable();
             $table->text('body');
             $table->string('attachment')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->text('message')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
