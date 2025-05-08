@@ -21,8 +21,22 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect('/support');
+            $user = Auth::user();
+
+            // Check if the user is an admin
+            if ($user->role === 'user') {
+                $request->session()->regenerate();
+                return redirect('/support');
+            }
+
+            // Non-admin users are unauthorized
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return back()->withErrors([
+                'email' => 'Unauthorized user',
+            ])->onlyInput('email');
         }
 
         return back()->withErrors([
