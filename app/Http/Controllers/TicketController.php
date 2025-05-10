@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\TicketForm;
 use App\Models\DynamicOption;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
@@ -34,6 +35,8 @@ class TicketController extends Controller
     
     public function TicketForm(Request $request)
 {
+    // dd('etklgnrtng');
+    // dd(Auth::id());
     if ($request->isMethod('post')) {
         // Handle file upload if an attachment is provided
         $attachmentPath = null;
@@ -49,6 +52,7 @@ class TicketController extends Controller
             'service' => $request->input('service'),
             'body' => $request->input('ticketBody'),
             'attachment' => $attachmentPath,
+            'user_id' => Auth::id(),
         ]);
 
         // Return a response with a success message

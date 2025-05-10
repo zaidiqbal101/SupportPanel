@@ -168,7 +168,7 @@ function Support({ tickets: initialTickets = [] }) {
                         {ticket.priority || 'N/A'}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className= {(ticket.status === 'pending' || ticket.status === 'canceled') ? "px-6 py-4 whitespace-nowrap text-sm text-red-500" : "px-6 py-4 whitespace-nowrap text-sm text-green-500"}>
                       {ticket.status}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm">

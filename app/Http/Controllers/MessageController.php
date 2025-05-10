@@ -40,7 +40,7 @@ class MessageController extends Controller
         ]);
 
         $message = Message::create([
-            'user_id' => $request->user_id,
+            'user_id' => Auth::id(),
             'content' => $validated['content'],
             'is_read' => false,
         ]);

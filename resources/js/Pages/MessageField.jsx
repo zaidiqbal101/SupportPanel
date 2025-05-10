@@ -59,7 +59,7 @@ const MessageField = ({userId}) => {
     
     setLoading(true);
     try {
-      const response = await axios.post(`/messages`, {
+      const response = await axios.post(`/messages/store`, {
         user_id:userId,
         content: messageContent,
       }, {

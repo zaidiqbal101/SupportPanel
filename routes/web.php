@@ -25,7 +25,7 @@ Route::match(['get', 'post'], '/TicketForm', [TicketController::class, 'TicketFo
     ->middleware(['auth', 'user.only'])
     ->name('ticket.create');
     Route::get('/messages', [App\Http\Controllers\MessageController::class, 'index']);
-    Route::post('/messages', [App\Http\Controllers\MessageController::class, 'store']);
+    Route::post('/messages/store', [App\Http\Controllers\MessageController::class, 'store']);
     Route::get('/messages/{message}', [App\Http\Controllers\MessageController::class, 'show']);
     Route::put('/messages/{message}', [App\Http\Controllers\MessageController::class, 'update']);
     Route::patch('/messages/{message}', [App\Http\Controllers\MessageController::class, 'update']);

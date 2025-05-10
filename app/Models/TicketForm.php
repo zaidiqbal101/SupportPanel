@@ -18,7 +18,8 @@ class TicketForm extends Model
         'attachment', // Added attachment field
         'status',
         'message', 
-        'date'
+        'date',
+        'user_id'
     ];
     
     protected $casts = [
